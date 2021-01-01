@@ -14,3 +14,7 @@ spring:
 mybatis-plus:
   mapper-locations: classpath:mapper/*Mapper.xml
   type-aliases-package: com.wangdong.payment.entities
+
+logging:
+  level:
+    com: INFO

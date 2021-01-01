@@ -1,15 +1,21 @@
 package com.wangdong.payment.controller;
 
+import com.wangdong.payment.entities.Payment;
 import com.wangdong.payment.result.R;
 import com.wangdong.payment.service.PaymentService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
-@Controller
-@RequestMapping("payment")
+/**
+ * 支付
+ * @author wangdong
+ * @date 2020-12-29
+ */
+@RestController
+@RequestMapping("/payment")
 @RequiredArgsConstructor
 public class PaymentController {
 
@@ -17,7 +23,8 @@ public class PaymentController {
 
     @GetMapping("/{id}")
     public R findById(@PathVariable Integer id) {
-        return R.success(paymentService.findById(id));
+        Payment payment = paymentService.findById(id);
+        return R.success(payment);
     }
 
 }
