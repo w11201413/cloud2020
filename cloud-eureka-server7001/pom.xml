@@ -9,19 +9,21 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>cloud-provider-payment8001</artifactId>
+    <artifactId>cloud-eureka-server7001</artifactId>
 
     <dependencies>
 
+        <!-- 服务注册中心 -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-netflix-eureka-server</artifactId>
+        </dependency>
+
+        <!-- 公共类库及配置 -->
         <dependency>
             <groupId>com.wangdong.springcloud</groupId>
             <artifactId>cloud-api-commons</artifactId>
             <version>${project.version}</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
         </dependency>
 
         <dependency>
@@ -32,31 +34,6 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-actuator</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>com.baomidou</groupId>
-            <artifactId>mybatis-plus-boot-starter</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>com.alibaba</groupId>
-            <artifactId>druid-spring-boot-starter</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-jdbc</artifactId>
         </dependency>
 
         <dependency>

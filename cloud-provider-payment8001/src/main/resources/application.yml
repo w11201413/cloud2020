@@ -15,6 +15,14 @@ mybatis-plus:
   mapper-locations: classpath:mapper/*Mapper.xml
   type-aliases-package: com.wangdong.payment.pojo.entities
 
+#Eureka配置
+eureka:
+  client:
+    register-with-eureka: true # 表示是否向注册中心注册当前服务
+    fetch-registry: true # 表示是否需要去注册中心获取其他服务地址
+    service-url: # 设置与Eureka Server交互的地址查询服务 和 注册服务 依赖的网关地址
+      defaultZone: http://localhost:7001/eureka
+
 logging:
   level:
     com: INFO
