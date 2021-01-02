@@ -11,6 +11,8 @@
 
   <modules>
     <module>cloud-provider-payment8001</module>
+    <module>cloud-consumer-order80</module>
+    <module>cloud-api-commons</module>
   </modules>
 
   <!-- 统一管理jar包版本 -->
@@ -24,6 +26,7 @@
     <mysql.version>8.0.22</mysql.version>
     <druid.version>1.2.3</druid.version>
     <mybatis.spring.boot.version>3.4.1</mybatis.spring.boot.version>
+    <hutool.version>5.5.6</hutool.version>
   </properties>
 
   <!-- 子模块继承 -->
@@ -86,6 +89,11 @@
         <groupId>com.baomidou</groupId>
         <artifactId>mybatis-plus-boot-starter</artifactId>
         <version>${mybatis.spring.boot.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>cn.hutool</groupId>
+        <artifactId>hutool-all</artifactId>
+        <version>${hutool.version}</version>
       </dependency>
     </dependencies>
   </dependencyManagement>

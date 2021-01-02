@@ -1,13 +1,12 @@
 package com.wangdong.payment.controller;
 
-import com.wangdong.payment.entities.Payment;
-import com.wangdong.payment.result.R;
+import com.wangdong.commons.result.R;
+import com.wangdong.payment.pojo.dto.PaymentDTO;
+import com.wangdong.payment.pojo.entities.Payment;
 import com.wangdong.payment.service.PaymentService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * 支付
@@ -25,6 +24,11 @@ public class PaymentController {
     public R findById(@PathVariable Integer id) {
         Payment payment = paymentService.findById(id);
         return R.success(payment);
+    }
+
+    @PostMapping
+    public R create(@RequestBody @Validated PaymentDTO paymentDTO) {
+        return R.success(paymentService.create(paymentDTO));
     }
 
 }
