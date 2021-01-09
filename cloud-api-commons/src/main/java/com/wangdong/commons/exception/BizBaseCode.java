@@ -10,7 +10,7 @@ import lombok.Getter;
  */
 @Getter
 @AllArgsConstructor
-public enum BizBaseCode {
+public enum BizBaseCode implements BizCodeInterface{
 
     /** 系统级异常: -1 未知异常; 1XXX 其他系统异常; */
     SYSTEM_FAILED(-1, "未知异常"),

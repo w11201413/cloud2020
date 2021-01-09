@@ -4,8 +4,10 @@ import com.wangdong.commons.exception.BizBaseCode;
 import com.wangdong.commons.exception.BizException;
 import com.wangdong.commons.result.R;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 import javax.servlet.http.HttpServletRequest;
@@ -26,6 +28,7 @@ public class GlobalExceptionHandler {
      * @return 校验结果封装
      */
     @ExceptionHandler(value= MethodArgumentNotValidException.class)
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
     public R MethodArgumentNotValidHandler(HttpServletRequest request, MethodArgumentNotValidException exception) {
         return exception.getBindingResult().getFieldErrors().stream().findFirst().map(error ->
                 R.error(BizBaseCode.SYSTEM_VALID_FAILED, error.getField(), error.getDefaultMessage())
@@ -39,6 +42,7 @@ public class GlobalExceptionHandler {
      * @return 业务异常结果封装
      */
     @ExceptionHandler(value= BizException.class)
+    @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
     public R exceptionHandler(HttpServletRequest request, BizException exception) {
         log.error("系统发生业务异常", exception.getCause());
         return R.error(exception.getBizBaseCode(), exception.getParams());
@@ -51,6 +55,7 @@ public class GlobalExceptionHandler {
      * @return 未知异常结果封装
      */
     @ExceptionHandler(value= Exception.class)
+    @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
     public R exceptionHandler(HttpServletRequest request, Exception exception) {
         log.error("系统发生未知异常", exception);
         return R.error(BizBaseCode.SYSTEM_FAILED);

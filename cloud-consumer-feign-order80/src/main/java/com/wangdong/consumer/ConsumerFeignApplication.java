@@ -10,10 +10,10 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 @EnableFeignClients
 @MapperScan(value = "com.wangdong.consumer.dao")
 @SpringBootApplication
-public class ConsumerApplication {
+public class ConsumerFeignApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(ConsumerApplication.class, args);
+        SpringApplication.run(ConsumerFeignApplication.class, args);
     }
 
 }

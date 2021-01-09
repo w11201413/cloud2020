@@ -1,7 +1,7 @@
 package com.wangdong.commons.result;
 
 import cn.hutool.core.util.StrUtil;
-import com.wangdong.commons.exception.BizBaseCode;
+import com.wangdong.commons.exception.BizCodeInterface;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -34,7 +34,7 @@ public class R<T> {
         return new R<>(0, "success", data);
     }
 
-    public static<T> R<T> error(BizBaseCode bizBaseCode, Object ... params) {
-        return new R<>(bizBaseCode.getCode(), StrUtil.format(bizBaseCode.getMsg(), params));
+    public static<T> R<T> error(BizCodeInterface bizCode, Object ... params) {
+        return new R<>(bizCode.getCode(), StrUtil.format(bizCode.getMsg(), params));
     }
 }
