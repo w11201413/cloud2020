@@ -22,6 +22,8 @@
     <module>cloud-gateway-gateway9527</module>
     <module>cloud-stream-rabbitmq-provider8801</module>
     <module>cloud-stream-rabbitmq-consumer8802</module>
+      <module>cloudalibaba-provider-payment</module>
+    <module>cloudalibaba-consumer-order</module>
   </modules>
 
   <!-- 统一管理jar包版本 -->

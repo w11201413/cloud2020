@@ -1,0 +1,12 @@
+server:
+  port: 80
+spring:
+  application:
+    name: consumer-order
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 39.105.200.0:8848 # 服务注册中心
+      config:
+        server-addr: 39.105.200.0:8848 # 配置中心地址
+        file-extension: yml # 指定yaml格式的配置
