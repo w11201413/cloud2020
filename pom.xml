@@ -24,6 +24,7 @@
     <module>cloud-stream-rabbitmq-consumer8802</module>
       <module>cloudalibaba-provider-payment</module>
     <module>cloudalibaba-consumer-order</module>
+    <module>cloudalibaba-sentinel-service8401</module>
   </modules>
 
   <!-- 统一管理jar包版本 -->
